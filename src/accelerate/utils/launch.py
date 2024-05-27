@@ -305,8 +305,8 @@ def prepare_deepspeed_cmd_env(args: argparse.Namespace) -> Tuple[List[str], Dict
                     str(args.deepspeed_inclusion_filter),
                 ]
             )
-        else:
-            cmd.extend(["--num_gpus", str(args.num_processes // args.num_machines)])
+        # else:
+        #     cmd.extend(["--num_gpus", str(args.num_processes // args.num_machines)])
         if main_process_ip:
             cmd.extend(["--master_addr", str(main_process_ip)])
         cmd.extend(["--master_port", str(main_process_port)])
